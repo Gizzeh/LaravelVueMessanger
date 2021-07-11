@@ -4,7 +4,15 @@
 namespace App\Repositories;
 
 
-class UserRepository
+use App\Models\User as Model;
+
+class UserRepository extends BaseRepository
 {
+
+    protected function getModelClass() {
+        return Model::class;
+    }
+
+
 
 }

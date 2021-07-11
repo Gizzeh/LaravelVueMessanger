@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('crud')->middleware('auth')->group(function() {
+//    Route::apiResource('mlbBetMl', 'App\Http\Controllers\MlbBetMlController');
+});
+
+Route::get('/{vue_capture?}', function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*')
+    ->middleware('auth');
